@@ -79,19 +79,15 @@ function App() {
       </Accordion>
       <SearchableList
         items={PLACES}
-        children={(item) => <Place item={item} />}
+        renderKey={(item) => item.id}
+        renderChildren={(item) => <Place item={item} />}
       />
       <SearchableList
-        items={[
-          {
-            id: "1",
-            content: "item 1",
-          },
-          { id: "2", content: "item 2" },
-        ]}
-        children={(item) => {
-          return <div>{item.content}</div>;
+        items={["item 1", "item 2"]}
+        renderChildren={(item) => {
+          return <div>{item}</div>;
         }}
+        renderKey={(item) => item}
       />
     </main>
   );
