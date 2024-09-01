@@ -1,12 +1,14 @@
 import { createContext, useContext, useState } from "react";
 import AccordionItem from "./AccordionItem";
+import AccordionTitle from "./AccordionTitle";
+import AccordionContent from "./AccordionContent";
 
 const AccordionContext = createContext();
 
 export const useAccordionContext = () => {
   const context = useContext(AccordionContext);
   if (!context) {
-    throw Error("Accordion-related components must be wrapped by <Accordion>.");
+    throw new Error("Accordion-related components must be wrapped by <Accordion>.");
   }
   return context;
 };
@@ -36,5 +38,7 @@ const Accordion = ({ children, className }) => {
 };
 
 Accordion.Item = AccordionItem;
+Accordion.Title = AccordionTitle;
+Accordion.Content = AccordionContent;
 
 export default Accordion;
