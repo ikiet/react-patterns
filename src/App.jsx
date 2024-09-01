@@ -9,6 +9,7 @@ function App() {
       </section>
       <Accordion className="accordion">
         <AccordionItem
+          id="1"
           className="accordion-item"
           title="We got 20 years of experience"
         >
@@ -20,6 +21,7 @@ function App() {
           </article>
         </AccordionItem>
         <AccordionItem
+          id="2"
           className="accordion-item"
           title="We're working with local guides"
         >
