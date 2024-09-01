@@ -1,10 +1,18 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 export default ({ items, renderChildren, renderKey }) => {
   const [searchKeyword, setSearchKeyword] = useState("");
 
+  const lastChange = useRef();
+
   const onChange = (event) => {
-    setSearchKeyword(event.target.value);
+    if (lastChange.current) {
+      clearTimeout(lastChange.current);
+    }
+    lastChange.current = setTimeout(() => {
+      lastChange.current = null;
+      setSearchKeyword(event.target.value);
+    }, 500);
   };
 
   const filteredItems = items.filter((item) =>
